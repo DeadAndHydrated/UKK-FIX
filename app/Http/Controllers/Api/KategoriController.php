@@ -46,9 +46,19 @@ class KategoriController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Kategori $kategori)
     {
-        //
+        $request->validate([
+            'deskripsi' => 'required',
+            'kategori' => 'required|in:M,A,BHP,BTHP',
+        ]);
+
+        $kategori->update([
+            'deskripsi' => $request->deskripsi,
+            'kategori' => $request->kategori,
+        ]);
+
+        return response()->json(['success' => 'Data Berhasil Diubah!']);
     }
 
     /**
