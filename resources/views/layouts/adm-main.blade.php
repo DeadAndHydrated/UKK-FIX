@@ -89,57 +89,10 @@
                 </div>
             </li>
 
-<li class="nav-item">
-    <a class="nav-link collapsed" href="/kategori" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-    <i class="fa fa-th-list" aria-hidden="true"></i>
-        <span>Kategori</span>
-    </a>
-    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="{{route('kategori.index')}}">Show All</a>
-            <a class="collapse-item" href="{{route('kategori.create')}}">Tambah</a>
-        </div>
-    </div>
-</li>
 
-<li class="nav-item">
-    <a class="nav-link collapsed" href="/barang" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-        <i class="fa-solid fa-box" aria-hidden="true"></i>
-        <span>Barang</span>
-    </a>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="{{route('barang.index')}}">Show All</a>
-            <a class="collapse-item" href="{{route('barang.create')}}">Tambah</a>
-        </div>
-    </div>
-</li>
 
-<li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
-        <i class="fa-solid fa-circle-arrow-right" aria-hidden="true"></i>
-        <span>Barang Masuk</span>
-    </a>
-    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="{{ route('barangmasuk.index') }}">Show All</a>
-            <a class="collapse-item" href="{{ route('barangmasuk.create') }}">Tambah</a>
-        </div>
-    </div>
-</li>
 
-<li class="nav-item">
-    <a class="nav-link collapsed" href="{{ route('dashboard') }}" data-toggle="collapse" data-target="#collapseFIve" aria-expanded="true" aria-controls="FIve">
-    <i class="fa-solid fa-circle-arrow-left" aria-hidden="true"></i>
-        <span>Barang Keluar</span>
-    </a>
-    <div id="collapseFIve" class="collapse" aria-labelledby="headingFIve" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="{{ route('barangkeluar.index') }}">Show All</a>
-            <a class="collapse-item" href="{{ route('barangkeluar.create') }}">Tambah</a>
-        </div>
-    </div>
-</li>
+
        
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

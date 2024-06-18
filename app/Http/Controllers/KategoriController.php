@@ -22,17 +22,11 @@ class KategoriController extends Controller
             $query->where('deskripsi', 'LIKE', "%$keyword%")
                   ->orWhereRaw('ketKategorik(kategori) COLLATE utf8mb4_unicode_ci LIKE ?', ["%$keyword%"]);
         }
-        
-        $search = $request->query('search');
-        if ($search) {
-            $rsetKategori = Kategori::where('deskripsi', 'like', '%' . $search . '%')
-                                    ->orWhere('kategori', 'like', '%' . $search . '%')
-                                    ->paginate(10);
-        } else {
-            $rsetKategori = Kategori::paginate(10);
-        }
-
-        return view('kategori.index', compact('rsetKategori'));
+    
+        $rsetKategori = $query->paginate(10);
+    
+        return view('kategori.index', compact('rsetKategori'))
+            ->with('i', ($request->input('page', 1) - 1) * 10);
     }
 
     public function create()
