@@ -11,19 +11,7 @@ class KategoriController extends Controller
 {
     public function index(Request $request)
     {
-        
-        $search = $request->query('search');
-        if ($search) {
-            $rsetKategori = Kategori::where('deskripsi', 'like', '%' . $search . '%')
-                                    ->orWhere('kategori', 'like', '%' . $search . '%')
-                                    ->paginate(10);
-        } else {
-            $rsetKategori = Kategori::paginate(10);
-        }
-
-        {
-
-            $keyword = $request->input('keyword');
+        $keyword = $request->input('keyword');
     
             // Query untuk mencari kategori berdasarkan keyword
             $query = DB::table('kategori')
@@ -40,10 +28,11 @@ class KategoriController extends Controller
             return view('kategori.index', compact('rsetKategori'))
                 ->with('i', ($request->input('page', 1) - 1) * 10);
         }
-    }
+    
 
     public function create()
     {
+        
         $kategori = [
             'blank' => 'Pilih Kategori',
             'M' => 'Barang Modal',
@@ -60,19 +49,19 @@ class KategoriController extends Controller
             'deskripsi' => 'required',
             'kategori' => 'required|in:M,A,BHP,BTHP',
         ]);
-
+        
+        DB::beginTransaction(); // Start the transaction
+        
         try {
-            DB::beginTransaction(); // Start the transaction
-
             // Insert a new category using Eloquent
             Kategori::create([
                 'deskripsi' => $request->deskripsi,
                 'kategori'  => $request->kategori,
                 'status'    => 'pending',
             ]);
-
+            
             DB::commit(); // Commit the changes
-
+            
             // Flash success message to the session
             Session::flash('success', 'Kategori berhasil disimpan!');
         } catch (\Exception $e) {
